@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Games</title>
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+    <div class="main_container">
+        <nav class="menu_bar">
+            <div><a href="https://github.com/GabrielGruia/Tema-1-TW"><img src= "/Images/Logo.png" class="logo"></a></div>
+            <div class="button games"><a href="/HTML/games.html" class="button games">‎‎‎GAMES‎</a></div>
+            <div class="button about"><a href="/HTML/about.html" class="button about">‏‏‎‎‎ABOUT‏‏‎‏‏‎‎</a></div>
+            <div class="button resources"><a href="/HTML/resources.html" class="button resources">‏‏‎‏‏‎RESOURCES</a></div>
+        </nav>
+        <div class="content">
+            <div class="games_title">GAMES</div>
+            <div class="games_info">
+                <!-- posts from index.js will go here -->
+            </div>
+        </div>
+        <div class="collapsible">
+            <button class="collapsible_button">»</button>
+            <div class="collapsible_content">
+                <form autocomplete="off">
+                    <div class="c_title">
+                        <label>Game title:</label><br>
+                        <input type="text" name="title" class="input" placeholder="Game title..">
+                    </div>
+                    <div class="c_desc">
+                        <label>Game description:</label><br>
+                        <textarea name="desc" class="textarea" placeholder="Game description.."></textarea>
+                    </div>
+                    <div class="c_img">
+                        <label>Game image URL:</label><br>
+                        <input type="input" name="image" class="input" placeholder="Game image URL..">
+                    </div>
+                    <div class="c_link">
+                        <label>Game page URL:</label><br>
+                        <input type="input" name="href" class="input" placeholder="Game page URL..">
+                    </div>
+                    <div>
+                        <input type="submit" name="submitter" class="add_game" value="Add New Game">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JS/alterGames.js"></script>
+</body>
+
+</html>
