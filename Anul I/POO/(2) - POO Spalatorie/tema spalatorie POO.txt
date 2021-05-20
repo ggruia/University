@@ -1,0 +1,67 @@
+~TEMA 2: "SPALATORIE":
+
+		Exista mai multe tipuri de haine (Pantaloni, Rochii, Camasi, Paltoane, Geci, Costume) cu greutati diferite, printre altele.
+
+		La o Spalatorie, aceste tipuri de haine sunt Supuse unui proces tehnologic de curatatorie realizat cu niste echipamente (Masini).
+
+			(Hainele sunt preluate in ordinea sosirii clientilor.)
+
+			El presupune o serie de etape: Spalare, Stoarcere, Uscare si Calcare.
+
+					Hainele usoare (pantaloni, rochii, camasi) se pot spala intr-o masina obisnuita.
+
+					Hainele grele (Paltoane, Geci) necesita alt echipament special la Spalare.
+
+					Paltoanele si Gecile nu se Storc si nu se Calca.
+
+					Unele haine necesita Spalare peste o anumita temperatura, altele sub o anumita temperatura.
+
+			Hainele au culori (deschise/inchise).
+
+				Ele nu se amesteca la Spalare.
+
+		Pentru a urma intregul proces, hainele trebuie trecute prin mai multe masini.
+
+			//Este recomandat ca Masinile sa lucreze cand sunt umplute peste jumatate din capacitatea maxima.
+
+
+	---> Scopul programului este implementarea fluxului tehnologic:
+		(i) preluarea de haine de la clienti;
+		(ii) plasarea lor in masini;
+		(iii) pornirea masinilor cand sunt suficient de pline;
+		(iv) preluarea hainelor de la o masina si mutarea catre urmatoarea (Spalat, Stors, Uscat, Calcat).
+
+
+	---> Precizari:
+
+	· Spalatoria poate prelua mai multe articole de la un client la un moment dat (e.g. 2 pantaloni, 3 geci, etc.).
+
+	· Capacitatea masinilor de Spalat si Stors este determinata de greutate, a celor de Uscat de numarul de articole iar Calcatul se realizeaza manual (avand capacitate 1 articol).
+
+	· Costumele se spala separat de alte categorii de haine in masinile obisnuite dar se pot spala impreuna cu Geci sau Paltoane.
+
+	· La Spalare se utilizeaza o cantitate de detergent determinata astfel: Pentru camasi si rochii – o valoare fixa unica tuturor articolelor; pentru Pantaloni – dublul cantitatii fixe daca e inchis la culoare; pentru restul se folosesc 100g detergent / Kg de articol.
+
+	· Fiecare masina are o durata de functionare a programului (de spalat, stors, uscat) fixata.
+
+	· Durata calcatului este dependenta de greutatea obietului si de tipul sau. Pentru camasi este 120 secunde / Kg, pentru pantaloni 90 secunde / Kg, pentru costume (240 s/Kg), durata pentru palton (150 s/Kg).
+
+	· Clientii au rabdare oricat de multa.
+
+	· O haina „tine minte” prin ce a trecut, astfel incat, la finalul procesului tehnologic sa poata afisa operatiunile (detaliat) la care a fost supusa (cu cruzime).
+
+	· Hainele se distribuie in prima Masina potrivita disponibila (fara un algoritm special).
+
+	· Cand toate hainele aferente comenzii unui client au fost procesate, este afisat pentru acea comanda totalul de detergent folosit si timpul total petrecut in Masini in timp ce lucrau (adica nu cat erau plasate acolo fara ca masina sa functioneze).
+
+
+
+	---> Cerințe comune tuturor temelor (barem):
+		1.	Toate clasele vor conține obligatoriu constructori de inițializare (0.25p), parametrizați (0.25p) și de copiere (0.25p); destructor (0.25p); operatorii „=” (0.25p), „>>” (0.25p), „<<” (0.25p) supraîncărcați corespunzător, moșteniri & encapsulare (0.5p) 
+		2.	Clasele derivate trebuie sa contina constructori parametrizati (prin care sa se evidentieze transmiterea parametrilor catre constructorul din clasa de baza) si destructori. (0.75p)
+		3.	În fiecare proiect vor fi ilustrate conceptele de upcasting, downcasting, funcții virtuale (pure – unde se consideră mai natural) – 1.5p (0.5p / cerință)
+		4.	Utilizarea de variabile și de funcții statice – 0.5p
+		5.	Tratarea exceptiilor (try – catch) – 1p
+		6.	Citirea informațiilor complete a n obiecte (de diferite tipuri), memorarea și afișarea acestora – 0.5p
+		7.	Meniu interactiv – 0.5p
+		8.	Rezolvarea corectă a cerințelor suplimentare corespunzatoare fiecarei teme – 2p.
