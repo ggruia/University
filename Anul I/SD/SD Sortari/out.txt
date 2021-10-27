@@ -1,0 +1,600 @@
+Sorting a RANDOM array with:
+Numere = 100     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 100     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 100     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 100     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 100     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a RANDOM array with:
+Numere = 1000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 1000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 1000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 1000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 1000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a RANDOM array with:
+Numere = 10000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 2 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 10000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 10000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 10000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 4 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 10000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a RANDOM array with:
+Numere = 1000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 1 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 1000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 1000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 1000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 1000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting a RANDOM array with:
+Numere = 10000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 12 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort Completed Successfully in: 8 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 10000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort Completed Successfully in: 10 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 10000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 7 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 10000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 8 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 10000000     Maxim = 1000
+
+STL - Sort Completed Successfully in: 7 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting a RANDOM array with:
+Numere = 100     Maxim = 1000000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 100     Maxim = 1000000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 100     Maxim = 1000000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 100     Maxim = 1000000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 100     Maxim = 1000000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a RANDOM array with:
+Numere = 1000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 1000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 1000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 1000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 1000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a RANDOM array with:
+Numere = 10000     Maxim = 100000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 2 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 10000     Maxim = 100000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 10000     Maxim = 100000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 10000     Maxim = 100000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 4 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 10000     Maxim = 100000000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort Completed Successfully in: 0 s
+COUNT - Sort unable to sort: values too High; sorting Aborted
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a RANDOM array with:
+Numere = 1000000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 1 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 1000000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 0 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 1000000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 1 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 1000000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 1 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 1000000     Maxim = 10000
+
+STL - Sort Completed Successfully in: 1 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 0 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting a RANDOM array with:
+Numere = 10000000     Maxim = 100000
+
+STL - Sort Completed Successfully in: 21 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort Completed Successfully in: 7 s
+
+
+
+Sorting a CONSTANT array with:
+Numere = 10000000     Maxim = 100000
+
+STL - Sort Completed Successfully in: 0 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort Completed Successfully in: 10 s
+
+
+
+Sorting an ASCENDANT - SORTED array with:
+Numere = 10000000     Maxim = 100000
+
+STL - Sort Completed Successfully in: 11 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting a DESCENDANT - SORTED array with:
+Numere = 10000000     Maxim = 100000
+
+STL - Sort Completed Successfully in: 12 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 0 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+
+Sorting an ALMOST - SORTED array with:
+Numere = 10000000     Maxim = 100000
+
+STL - Sort Completed Successfully in: 11 s
+BUBBLE - Sort too Slow; sorting Aborted!
+COUNT - Sort Completed Successfully in: 0 s
+RADIX - Sort Completed Successfully in: 1 s
+MERGE - Sort Completed Successfully in: 1 s
+QUICK - Sort too Slow on Sorted Arrays; sorting Aborted!
+
+
+

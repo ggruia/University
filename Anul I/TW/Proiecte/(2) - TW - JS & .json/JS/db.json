@@ -1,0 +1,88 @@
+{
+  "games": [
+    {
+      "name": "Enter the Gungeon",
+      "description": "Enter the Gungeon is a bullet hell dungeon crawler following a band of misfits seeking to shoot, loot, dodge roll and table-flip their way to personal absolution by reaching the legendary Gungeon’s ultimate treasure: the gun that can kill the past.",
+      "img": "/Images/gungeon.jpg",
+      "link": "https://store.steampowered.com/app/311690/Enter_the_Gungeon/",
+      "id": 1
+    },
+    {
+      "name": "Forager",
+      "description": "The highly popular and quirky 'idle game that you want to actively keep playing'. Explore, craft, gather & manage resources, find secrets and build your base out of nothing! Buy land to explore and expand!",
+      "img": "/Images/forager.jpg",
+      "link": "https://store.steampowered.com/app/751780/Forager/",
+      "id": 2
+    },
+    {
+      "name": "Firewatch",
+      "description": "Firewatch is a single-player first-person mystery set in the Wyoming wilderness, where your only emotional lifeline is the person on the other end of a handheld radio.",
+      "img": "/Images/firewatch.jpg",
+      "link": "https://store.steampowered.com/app/383870/Firewatch/",
+      "id": 3
+    },
+    {
+      "name": "Noita",
+      "description": "Noita is a magical action roguelite set in a world where every pixel is physically simulated. Fight, explore, melt, burn, freeze and evaporate your way through the procedurally generated world using spells you've created yourself.",
+      "img": "/Images/noita.jpg",
+      "link": "https://store.steampowered.com/app/881100/Noita/",
+      "id": 4
+    },
+    {
+      "name": "Journey",
+      "img": "/Images/journey.jpg",
+      "description": "Explore the ancient, mysterious world of Journey as you soar above ruins and glide across sands to discover its secrets.",
+      "link": "https://store.steampowered.com/app/638230/Journey/",
+      "id": 5
+    },
+    {
+      "name": "Terraria",
+      "img": "/Images/terraria.jpg",
+      "description": "Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!",
+      "link": "https://store.steampowered.com/app/105600/Terraria/",
+      "id": 6
+    },
+    {
+      "name": "Prince of Persia",
+      "img": "https://images.alphacoders.com/910/thumb-1920-91021.jpg",
+      "description": "The critically acclaimed Prince of Persia® franchise returns for the first time on next-generation platforms with an all-new epic journey.",
+      "link": "https://store.steampowered.com/app/19980/Prince_of_Persia/",
+      "id": 7
+    },
+    {
+      "name": "Sundered: Eldritch Edition",
+      "img": "https://steamcdn-a.akamaihd.net/steam/apps/535480/capsule_616x353.jpg?t=1588966158",
+      "description": "Sundered is a chaotic hand­-drawn metroidvania where you resist or embrace ancient eldritch powers, a challenging and unique take on a classic genre from the creators of Jotun, now with local co-op!",
+      "link": "https://store.steampowered.com/app/535480/Sundered_Eldritch_Edition/",
+      "id": 8
+    },
+    {
+      "name": "Minecraft",
+      "description": "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. Play in creative mode with unlimited resources or mine deep ...",
+      "img": "https://upload.wikimedia.org/wikipedia/en/thumb/5/51/Minecraft_cover.png/220px-Minecraft_cover.png",
+      "link": "https://www.minecraft.net/en-us/",
+      "id": 9
+    },
+    {
+      "name": "Hades",
+      "description": "Defy the god of the dead as you hack and slash out of the Underworld in this rogue-like dungeon crawler from the creators of Bastion, Transistor, and Pyre.",
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg?t=1619047247",
+      "link": "https://store.steampowered.com/app/1145360/Hades/",
+      "id": 10
+    },
+    {
+      "name": "Hearts of Iron IV",
+      "description": "Victory is at your fingertips! Your ability to lead your nation is your supreme weapon, the strategy game Hearts of Iron IV lets you take command of any nation in World War II; the most engaging conflict in world history.",
+      "img": "https://cdn.cloudflare.steamstatic.com/steam/apps/394360/header.jpg?t=1615973656",
+      "link": "https://store.steampowered.com/app/394360/Hearts_of_Iron_IV/",
+      "id": 11
+    },
+    {
+      "name": "Morcovelul",
+      "description": "Face bine la ochi. :D",
+      "img": "https://c.pxhere.com/photos/56/44/carrot_vegetable_food_cooking_ingredient-114275.jpg!s",
+      "link": "https://pxhere.com/ro/tag/1829",
+      "id": 12
+    }
+  ]
+}

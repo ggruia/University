@@ -1,0 +1,40 @@
+Laborator LFA 131 & 132:
+
+Laboratorul nu este obligatoriu, se poate lua nota 10 doar din examen/examen si seminar, etc..
+Laboratorul ofera un bonus de maxim 20p (din 100), adaugat doar studentilor care trec examenul. Prezenta nu este obligatorie. Explicatiile teoretice vor fi inregistrate.
+
+Continut: 3 proiecte -> 6p (easy), 7p (medium), 7p(hard)
+Se acorda 1p in plus pentru fiecare tema pentru clean code (identare, scris frumos, etc - 0.5) si folosirea de git (prin cli sau sourcetre, gitcrack) prin orice platforma la alegere (github, bitbucket, gitlab, etc..).
+
+De asemenea, proiectul 2 se poate echivala prin rezolvarea si redactarea (in latex, word etc..) unei teme ce contine subiecte de examen (destul de util, tbh).
+
+Alegerea proiectelor: 
+
+Proiectul 1 (individual, maxim 6 studenti/proiect din grupa)
+Deadline ~ saptamana 7 (~26.03 si ~02.04)
+Sa se scrie un algoritm care are ca input un <placeholder> si o lista de string-uri. Sa se afiseze DA/NU pentru fiecare cuvant si un traseu/drum in automat (cel putin pentru primul), daca este acceptat sau nu. Unde <placeholder>:
+1. automat finit determinist (DFA)
+2. automat finit nedeterminist fara lambda tranzitii (NFA)
+3. automat finit nedeterminist cu lambda tranzitii (lambda-NFA)
+4. automat Meale
+5. automat Moore
+
+
+Proiectul 2 (maxim ... studenti/proiect)
+Deadline ~ saptamana 10-11
+...
+
+
+Proiectul 3 (maxim ... studenti/proiect)
+Deadline ~ saptamana 14 -> maxim 2 zile inainte de examen
+... 
+
+Alte materiale: TBA
+
+Implementari C++ (moist voted)
+<vector.h> - vector <<vector>>
+<queue.h>
+<stack.h>
+<map.h>
+
+
