@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 #include <vector>
 #include <list>
 #include <stack>
@@ -38,8 +39,8 @@ struct Edge
 
     friend ostream& operator << (ostream& out, Edge& e)
     {
-        out << e.src << " ---> " << e.dest << " :  ";
-        if (isWeighted) out << e.cost << " (cost)";
+        out << e.src << " ---> " << e.dest;
+        if (isWeighted) out << " :  " << e.cost << " (cost)";
         if (isCappable) out << e.cap << " (cap)";
         out << "\n";
 
@@ -77,6 +78,14 @@ public:
             Edge edge;
             fin >> edge;
             adjacencyList[edge.src].push_back(edge);
+
+            if (!isDirected)
+            {
+                Edge rev = edge;
+                swap(rev.src, rev.dest);
+
+                adjacencyList[edge.dest].push_back(rev);
+            }
         }
     }
 
@@ -230,26 +239,23 @@ private:
 
     void BFS(int startingNode, vector<int>& dist)
     {
-        vector<bool> isVisited(nrNodes + 1, false);
         queue<int> inProcessing;
 
         inProcessing.push(startingNode);
-        isVisited[startingNode] = true; // adaugam nodul de plecare in coada; pornim BFS
         dist[startingNode] = 0;
 
         while (!inProcessing.empty())
         {
-            int currentNode = inProcessing.front(); // extragem primul nod din coada si ii parcurgem/adaugam vecinii in coada
+            int last = inProcessing.front(); // extragem primul nod din coada si ii parcurgem/adaugam vecinii in coada
 
             inProcessing.pop();
 
-            for (auto& edge : adjacencyList[currentNode]) // vecin.first = nodul din lista de adiacenta a nodului curent
-                if (!isVisited[edge.dest])               // adauga toti vecinii nevizitati ai nodului curent in coada
+            for (auto& edge : adjacencyList[last]) // vecin.first = nodul din lista de adiacenta a nodului curent
+                if (dist[edge.dest] == -1)                // adauga toti vecinii nevizitati ai nodului curent in coada
                 {
                     inProcessing.push(edge.dest);
-                    isVisited[edge.dest] = true;
-                    dist[edge.dest] = dist[currentNode] + 1;
-                } 
+                    dist[edge.dest] = dist[last] + 1;
+                }
         }
 
         dist.erase(dist.begin());
@@ -261,7 +267,7 @@ private:
         connectedComponent.insert(startingNode);
 
         for (auto& edge : adjacencyList[startingNode]) // vecin.first = nodul din lista de adiacenta a nodului curent
-            if (!isVisited[edge.dest])          // parcurgem componenta conexa de care apartine nodul de pornire
+            if (!isVisited[edge.dest])                 // parcurgem componenta conexa de care apartine nodul de pornire
                 DFS(edge.dest, isVisited, connectedComponent);
     }
 
@@ -282,7 +288,6 @@ private:
             else  // daca nodul vecin nu a fost explorat, pornim DFS din el, iar la revenirea din recursie, il incadram intr-o componenta conexa;
             {
                 TarjanDFS(edge.dest, discOrder, lowLink, path, onStack, SCClist);
-
                 lowLink[edge.src] = min(lowLink[edge.src], lowLink[edge.dest]);
             }
         }
@@ -314,17 +319,16 @@ private:
         for (auto& edge : adjacencyList[currentNode])
         {
             if (level[edge.dest]) // daca nodul vecin a fost explorat
-            {
                 lowLink[edge.src] = min(lowLink[edge.src], level[edge.dest]); // adancimea minima a nodului curent S = min (adancimea sa minima curenta; adancimea vecinilor sai)
-            }
+            
             else
             {
                 BiconnectedDFS(edge.dest, currentLevel + 1, level, lowLink, path, BCClist);
                 lowLink[edge.src] = min(lowLink[edge.src], lowLink[edge.dest]); // la intoarcerea din recursie, nodurile cu adancimea < adancimea nodului pe care s-a facut recursia
-                                                                         // isi minimizeaza adancimea minima lowLink cu a succesorilor;
-                if (lowLink[edge.dest] == level[edge.src])
-                {                                          // cand ajungem la succesorul radacinii componentei, eliminam nodurile pana la radacina din stiva, formand o componenta biconexa;
-                    set<int> biconnectedCopm;
+                                                                                // isi minimizeaza adancimea minima lowLink cu a succesorilor;
+                if (lowLink[edge.dest] == level[edge.src]) // cand ajungem la succesorul radacinii componentei, eliminam nodurile pana la radacina din stiva, formand o componenta biconexa;
+                {
+                    set<int> biconnectedComp;
                     int last;
 
                     do
@@ -332,12 +336,11 @@ private:
                         last = path.top();
                         path.pop();
 
-                        biconnectedCopm.insert(last);
-                    } while (edge.src != last);
+                        biconnectedComp.insert(last);
+                    } while (edge.dest != last);
 
-                    path.push(edge.src);
-
-                    BCClist.push_back(biconnectedCopm);
+                    biconnectedComp.insert(edge.src);
+                    BCClist.push_back(biconnectedComp);
                 }
             }
         }
@@ -358,7 +361,6 @@ private:
             else
             {
                 CriticalEdgesDFS(edge.dest, edge.src, discOrder, lowLink, CElist);
-
                 lowLink[edge.src] = min(lowLink[edge.src], lowLink[edge.dest]);
 
                 if (lowLink[edge.dest] > discOrder[edge.src])
@@ -506,12 +508,11 @@ int main()
     G.readAdjacencyList();
     //G.printAdjacencyList();
 
-
 #pragma region Public_Methods_Calls
 
 /* ---> MINIMAL DISTANCES (UNWEIGHTED) <--- */
 
-    /*vector<int> minDistances_UW = G.getUnweightedDistances(s);
+    /*vector<int> minDistances_UW = G.getUnweightedDistances(start);
 
     for (auto dist : minDistances_UW)
         fout << dist << " ";*/
