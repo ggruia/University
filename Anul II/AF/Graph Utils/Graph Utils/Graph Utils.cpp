@@ -165,9 +165,8 @@ public:
 
         vector<int> discoveryOrder(nrNodes + 1, 0);
         vector<int> lowestLink(nrNodes + 1, 0);
-        stack<int> path;
 
-        CriticalEdgesDFS(1, 0, discoveryOrder, lowestLink, path, CElist);
+        CriticalEdgesDFS(1, 0, discoveryOrder, lowestLink, CElist);
 
         return CElist;
     }
@@ -344,10 +343,9 @@ private:
         }
     }
 
-    void CriticalEdgesDFS(int startingNode, int previous, vector<int>& discOrder, vector<int>& lowLink, stack<int>& path, list<pair<int, int>>& CElist)
+    void CriticalEdgesDFS(int startingNode, int previous, vector<int>& discOrder, vector<int>& lowLink, list<pair<int, int>>& CElist)
     {
         static int currentID = 1;
-        path.push(startingNode);
         discOrder[startingNode] = lowLink[startingNode] = currentID++;
 
         for (auto& edge : adjacencyList[startingNode])
@@ -359,24 +357,13 @@ private:
             }
             else
             {
-                CriticalEdgesDFS(edge.dest, edge.src, discOrder, lowLink, path, CElist);
+                CriticalEdgesDFS(edge.dest, edge.src, discOrder, lowLink, CElist);
 
                 lowLink[edge.src] = min(lowLink[edge.src], lowLink[edge.dest]);
 
                 if (lowLink[edge.dest] > discOrder[edge.src])
                     CElist.push_back(make_pair(edge.src, edge.dest));
             }      
-        }
-
-        if (lowLink[startingNode] == discOrder[startingNode])
-        {
-            int last = path.top();
-
-            while (last != startingNode)
-            {
-                last = path.top();
-                path.pop();
-            }
         }
     }
 
