@@ -21,6 +21,8 @@ ofstream fout("output");
 
 struct Edge
 {
+    // easier, cleaner and more expandable alternative to using a tuple for Storing sourceNodes, destinationNodes, weights, capacities etc.. 
+
     int src;
     int dest;
     int cost;
@@ -28,7 +30,7 @@ struct Edge
 
     Edge(int s = 0, int d = 0, int c = 0, int g = 0) : src(s), dest(d), cost(c), cap(g) {}
 
-    friend istream& operator >> (istream& in, Edge& e)
+    friend istream& operator >> (istream& in, Edge& e)    // overloaded Reading operator >> in
     {
         in >> e.src >> e.dest;
         if (isWeighted) in >> e.cost;
@@ -37,7 +39,7 @@ struct Edge
         return in;
     }
 
-    friend ostream& operator << (ostream& out, Edge& e)
+    friend ostream& operator << (ostream& out, Edge& e)    // overloaded Writing operator << out
     {
         out << e.src << " ---> " << e.dest;
         if (isWeighted) out << " :  " << e.cost << " (cost)";
@@ -51,7 +53,7 @@ struct Edge
 
 class Graph
 {
-// Implementation of  << UTILITARY Functions >>  for (UN)Directed, (UN)Weighted & (UN)Cappable << Graphs >>;
+    // Implementation of  << UTILITARY Functions >>  for (UN)Directed, (UN)Weighted & (UN)Cappable  << Graphs >> ;
 
 #pragma region Data
 
@@ -67,7 +69,7 @@ public:
 
 #pragma region IO_Methods
 
-    Graph(int n = 0, int m = 0) : nrNodes(n), nrEdges(m){}
+    Graph(int n = 0, int m = 0) : nrNodes(n), nrEdges(m) {} 
 
     void readAdjacencyList()
     {
@@ -111,7 +113,7 @@ public:
 #pragma endregion
 
 
-#pragma region Unweighted_Graph_Methods
+#pragma region Unweighted_Graph_Wrappers
 
     vector<int> getUnweightedDistances(int startingNode)
     {
@@ -199,9 +201,7 @@ public:
 
         int deg;
         while (fin >> deg)
-        {
             degrees.push_back(deg);
-        }
 
         HavelHakimi(degrees, validity);
 
@@ -210,7 +210,7 @@ public:
 
 #pragma endregion
 
-#pragma region Weighted_Graph_Methods
+#pragma region Weighted_Graph_Wrappers
 
     vector<int> getWeightedDistances(int startingNode)
     {
@@ -235,70 +235,70 @@ public:
 
 private:
 
-#pragma region Private_Unweighted_Methods
+#pragma region Unweighted_Methods
 
     void BFS(int startingNode, vector<int>& dist)
     {
-        queue<int> inProcessing;
+        queue<int> inProcessing;    // stores the order of the bfs traversal
 
         inProcessing.push(startingNode);
         dist[startingNode] = 0;
 
         while (!inProcessing.empty())
         {
-            int last = inProcessing.front(); // extragem primul nod din coada si ii parcurgem/adaugam vecinii in coada
-
+            int last = inProcessing.front();    // extracts the first node from the queue, to push its adjacent nodes in the queue
             inProcessing.pop();
 
-            for (auto& edge : adjacencyList[last]) // vecin.first = nodul din lista de adiacenta a nodului curent
-                if (dist[edge.dest] == -1)                // adauga toti vecinii nevizitati ai nodului curent in coada
+            for (auto& edge : adjacencyList[last])
+                if (dist[edge.dest] == -1)    // checks for unvisited adjacent nodes
                 {
                     inProcessing.push(edge.dest);
                     dist[edge.dest] = dist[last] + 1;
                 }
         }
 
-        dist.erase(dist.begin());
+        dist.erase(dist.begin());    // nu ne place infoarena si indexarea de la 1! :(
     }
 
-    void DFS(int startingNode, vector<bool>& isVisited, set<int>& connectedComponent)
+    void DFS(int currentNode, vector<bool>& isVisited, set<int>& connectedComponent)
     {
-        isVisited[startingNode] = true;
-        connectedComponent.insert(startingNode);
+        isVisited[currentNode] = true;    // every time recursion takes place on an unvisited node, it's marked as visited, not to be includee in more than 1 connected component;
+        connectedComponent.insert(currentNode);
 
-        for (auto& edge : adjacencyList[startingNode]) // vecin.first = nodul din lista de adiacenta a nodului curent
-            if (!isVisited[edge.dest])                 // parcurgem componenta conexa de care apartine nodul de pornire
+        for (auto& edge : adjacencyList[currentNode])    // traverses every node in the current node's adjacency list and (if it hadn't already been included in a connected component), continues recursion from it;
+            if (!isVisited[edge.dest])
                 DFS(edge.dest, isVisited, connectedComponent);
     }
 
     void TarjanDFS(int currentNode, vector<int>& discOrder, vector<int>& lowLink, stack<int>& path, vector<bool>& onStack, list<set<int>>& SCClist)
     {
-        static int currentID = 1;
-        path.push(currentNode);
-        onStack[currentNode] = true;
-        discOrder[currentNode] = lowLink[currentNode] = currentID++;
+        static int currentID = 1;    // increments and keeps value after each recursion
+        discOrder[currentNode] = lowLink[currentNode] = currentID++;    // discOrder: assigns an ID to each node, representing the DFS traversal order;   lowLink: point to the lowest ID that a node can return to
 
-        for (auto& edge : adjacencyList[currentNode]) // vecin.first = nodul din lista de adiacenta a nodului curent
+        path.push(currentNode);    // stores the DFS traversal path
+        onStack[currentNode] = true;    // to check if a node is on the current traversal path
+        
+
+        for (auto& edge : adjacencyList[currentNode])    // for each node adjacent to the current node
         {
-            if (discOrder[edge.dest]) // daca nodul vecin a fost explorat si se afla pe stiva de ordine, il incadram intr-o componenta conexa;
-            {
-                if (onStack[edge.dest])
-                    lowLink[edge.src] = min(lowLink[edge.src], discOrder[edge.dest]);
-            }
-            else  // daca nodul vecin nu a fost explorat, pornim DFS din el, iar la revenirea din recursie, il incadram intr-o componenta conexa;
+            if (discOrder[edge.dest])    // if the adjacent node had been processed and is part of the current traversal path
+                if(onStack[edge.dest])
+                    lowLink[edge.src] = min(lowLink[edge.src], discOrder[edge.dest]);    // update the lowest returning point of the adjacent node
+
+            else    // if the adjacent node hadn't been processed yet, start recursion from it
             {
                 TarjanDFS(edge.dest, discOrder, lowLink, path, onStack, SCClist);
-                lowLink[edge.src] = min(lowLink[edge.src], lowLink[edge.dest]);
+                lowLink[edge.src] = min(lowLink[edge.src], lowLink[edge.dest]);    // after the recursion callback, update the lowest returning point of the adjacent node
             }
         }
 
-                                                             // daca ID - ul nodului corespunde cu lowLink - value - ul sau, inseamna ca nodul este radacina componentei sale conexe,
-        if (lowLink[currentNode] == discOrder[currentNode])  // si putem scoate de pe stiva toate nodurile pana la startingNode, deoarece am terminat de explorat componenta respectiva;
+
+        if (lowLink[currentNode] == discOrder[currentNode])    // if the lowest returning point of a node is also its discovery ID, it means that the node is the root of its strongly connected component
         {
             set<int> connectedComp;
             int last;
 
-            do
+            do    // removes all the nodes, until the SCC's root, from the path's stack and inserts them into a new strongly connected component
             {
                 last = path.top();
                 path.pop();
@@ -313,8 +313,8 @@ private:
 
     void BiconnectedDFS(int currentNode, int currentLevel, vector<int>& level, vector<int>& lowLink, stack<int>& path, list<set<int>>& BCClist)
     {
-        path.push(currentNode); // stiva retine parcurgerea DFS a subarborilor grafului
-        level[currentNode] = lowLink[currentNode] = currentLevel; // adancimi[x] = nivelul de adancime al nodului X din arborele DFS;     lowLink[x] = adancimea minima la care se poate intoarce nodul X;
+        path.push(currentNode);    // stores the DFS traversal path
+        level[currentNode] = lowLink[currentNode] = currentLevel;    // level: the "depth" of each node in the DFS traversal's tree;   lowLink: point to the lowest "depth" that a node can return to
 
         for (auto& edge : adjacencyList[currentNode])
         {
@@ -415,7 +415,7 @@ private:
 
 #pragma endregion
 
-#pragma region Private_Weighted_Methods
+#pragma region Weighted_Methods
 
     void Dijkstra(int startingNode, vector<int>& dist)
     {
