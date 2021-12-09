@@ -1,18 +1,15 @@
-#include <fstream>
 #include <iostream>
-#include <algorithm>
+#include <fstream>
 #include <vector>
-#include <list>
 #include <stack>
 #include <queue>
-#include <set>
+#include <algorithm>
+#include <climits>
 using namespace std;
 
-constexpr auto INF = 2147483647;;
+constexpr int INF = INT_MAX;
+constexpr bool Directed = true, unDirected = false, Weighted = true, unWeighted = false, Flowing = true, unFlowing = false;
 
-bool isDirected;
-bool isWeighted;
-bool isFlowing;
 
 ifstream fin("input");
 ofstream fout("output");
@@ -21,97 +18,120 @@ ofstream fout("output");
 
 struct Edge
 {
-    // easier, cleaner and more expandable alternative to using a tuple for Storing sourceNodes, destinationNodes, weights, capacities etc.. 
+    // easier, cleaner and more expandable alternative to using a tuple for Storing sourceNodes, destinationNodes, weights, capacities etc...
 
     int src;
     int dest;
     int cost;
-    int cap;
-
-    Edge(int s = 0, int d = 0, int c = 0, int g = 0) : src(s), dest(d), cost(c), cap(g) {}
-
-    friend istream& operator >> (istream& in, Edge& e)    // overloaded Reading operator >> in
+    struct flow
     {
-        in >> e.src >> e.dest;
-        if (isWeighted) in >> e.cost;
-        if (isFlowing) in >> e.cap;
-            
-        return in;
+        int curfl;
+        int maxfl;
+    } cap;
+
+
+    Edge ()
+    {
+        src = 0;
+        dest = 0;
+        cost = 0;
+        cap.curfl = 0;
+        cap.maxfl = 0;
+    }
+    Edge(int s, int d, int c = 0, int mf = 0, int cf = 0)
+    {
+        src = s;
+        dest = d;
+        cost = c;
+        cap.maxfl = mf;
+        cap.curfl = cf;
     }
 
-    friend ostream& operator << (ostream& out, Edge& e)    // overloaded Writing operator << out
+    Edge getReverse()
     {
-        out << e.src << " ---> " << e.dest;
-        if (isWeighted) out << " :  " << e.cost << " (cost)";
-        if (isFlowing) out << e.cap << " (cap)";
-        out << "\n";
+        Edge revEdge(dest, src, cost, cap.maxfl, cap.curfl);
+        return revEdge;
+    }
 
-        return out;
+    bool operator< (const Edge& edge) const
+    {
+        return cost < edge.cost;
     }
 };
-
-bool costASC(Edge x, Edge y)
-{
-    return x.cost < y.cost;
-}
 
 
 
 class Graph
 {
-    // Implementation of  << UTILITARY Functions >>  for (UN)Directed, (UN)Weighted & (UN)Cappable  << Graphs >> ;
+    // Implementation of  << UTILITARY Functions >>  for (UN)Directed, (UN)Weighted & (UN)Flowing  << Graphs >> ;
+
+    bool isDirected;
+    bool isWeighted;
+    bool isFlowing;
 
     int nrNodes;
     int nrEdges;
 
-    vector<list<Edge>> adjacencyList;
+    vector<vector<Edge>> adjacencyList;
 
 
 public:
 
-    Graph(int n = 0, int m = 0) : nrNodes(n), nrEdges(m) {} 
+    Graph(int n = 0, int m = 0, bool d = false, bool w = false, bool f = false) : nrNodes(n), nrEdges(m), isDirected(d), isWeighted(w), isFlowing(f) {}
 
     void readAdjacencyList();
 
-    void printAdjacencyList();
+    void printAdjacencyList(vector<vector<Edge>>& list);
+
+    void readAdjacencyMatrix();
+
+    void printAdjacencyMatrix(vector<vector<int>>& matrix);
+
+    vector<vector<Edge>> getAdjacencyListFromMatrix(vector<vector<int>>& adjMatrix);
+
+    vector<vector<int>> getAdjacencyMatrixFromList(vector<vector<Edge>>& adjList);
 
 
     vector<int> getUnweightedDistances(int startingNode);
 
-    list<set<int>> getConnectedComponents();
+    vector<vector<int>> getConnectedComponents();
 
-    list<set<int>> getStronglyConnectedComponents();
+    vector<vector<int>> getStronglyConnectedComponents();
 
-    list<set<int>> getBiconnectedComponents();
+    vector<vector<int>> getBiconnectedComponents();
 
-    list<pair<int, int>> getCriticalEdges();
+    vector<pair<int, int>> getCriticalEdges();
 
-    list<int> getTopologicalOrder();
+    deque<int> getTopologicalOrder();
 
     bool getValidGraph();
 
-    void getDisjointSets(int nrOp);
+    void disjointSetsWrapper(int nrOp);
 
     vector<int> getWeightedDistances(int startingNode);
 
-    vector<int> getBellmanFordDistances(int startingNode);
-
     vector<pair<int, int>> getMinimumSpanningTree(int& minimumCost);
+
+    int getTreeDiameter();
+
+    vector<vector<int>> getAllMinimumDistances();
+
+    int getMaxFlow(int source, int sink);
 
 
 private:
 
     void BFS(int startingNode, vector<int>& dist);
 
-    void DFS(int currentNode, vector<bool>& isVisited, set<int>& connectedComponent);
+    void DFS(int currentNode, vector<bool>& isVisited, vector<int>& connectedComponent);
 
-    void TarjanDFS(int currentNode, vector<int>& discOrder, vector<int>& lowLink, stack<int>& path, vector<bool>& onStack, list<set<int>>& SCClist);
+    void TarjanDFS(int currentNode, vector<int>& discOrder, vector<int>& lowLink, stack<int>& path, vector<bool>& onStack, vector<vector<int>>& SCClist);
 
-    void BiconnectedDFS(int currentNode, int currentLevel, vector<int>& level, vector<int>& lowLink, stack<int>& path, list<set<int>>& BCClist);
+    void BiconnectedDFS(int currentNode, int currentLevel, vector<int>& level, vector<int>& lowLink, stack<int>& path, vector<vector<int>>& BCClist);
 
-    void CriticalEdgesDFS(int startingNode, int previous, vector<int>& discOrder, vector<int>& lowLink, list<pair<int, int>>& CElist);
+    void CriticalEdgesDFS(int startingNode, int previous, vector<int>& discOrder, vector<int>& lowLink, vector<pair<int, int>>& CElist);
 
-    void TopologicalOrderDFS(int startingNode, vector<bool>& isVisited, list<int>& TOlist);
+    void TopologicalOrderDFS(int startingNode, vector<bool>& isVisited, deque<int>& TOlist);
 
     void HavelHakimi(vector<int>& degrees, bool& valid);
 
@@ -125,32 +145,37 @@ private:
 
     void Kruskal(int& minimumCost, vector<Edge>& edgeList, vector<int>& parent, vector<pair<int, int>>& MSTlist);
 
+    void RoyFloyd(vector<vector<int>>& distanceMatrix);
+
+    bool checkAugmentingPath(int source, int sink, vector<int>& parent, vector<bool>& isVisited, vector<vector<Edge>>& flowNetwork);
 };
 
 
-#pragma region Utilitary_Functions
+
+#pragma region Definitions
 
 void Graph :: readAdjacencyList()
 {
     adjacencyList.resize(nrNodes + 1);
 
+
     for (int i = 0; i < nrEdges; i++)
     {
         Edge edge;
-        fin >> edge;
+        fin >> edge.src >> edge.dest;
+        if (isWeighted)
+            fin >> edge.cost;
+        if (isFlowing)
+            fin >> edge.cap.maxfl;
+
         adjacencyList[edge.src].push_back(edge);
 
         if (!isDirected)
-        {
-            Edge rev = edge;
-            swap(rev.src, rev.dest);
-
-            adjacencyList[edge.dest].push_back(rev);
-        }
+            adjacencyList[edge.dest].push_back(edge.getReverse());
     }
 }
 
-void Graph :: printAdjacencyList()
+void Graph :: printAdjacencyList( vector<vector<Edge>>& list)
 {
     fout << "\n>   nrNodes = " << nrNodes;
     fout << "\n>   nrEdges = " << nrEdges;
@@ -161,12 +186,128 @@ void Graph :: printAdjacencyList()
     fout << " graph <G>:";
 
     for (int i = 1; i <= nrNodes; i++)
-        if (adjacencyList[i].size())
+        if (list[i].size())
         {
             fout << "\n\nNode " << i << ":\n";
-            for (auto& edge : adjacencyList[i])
-                fout << edge;
+            for (auto& edge : list[i])
+            {
+                fout << edge.src << " ---> " << edge.dest;
+                if (isWeighted && isFlowing)
+                    fout << "  (" << edge.cost << ", " << edge.cap.maxfl << ")";
+                else if (isWeighted)
+                    fout << "  |" << edge.cost << "|";
+                else if (isFlowing)
+                    fout << "  /" << edge.cap.maxfl << "/";
+                fout << "\n";
+            }
         }
+}
+
+void Graph :: readAdjacencyMatrix()
+{
+    int edgeCount = 0;
+    adjacencyList.resize(nrNodes + 1);
+
+    for (int i = 1; i <= nrNodes; i++)
+        for (int j = 1; j <= nrNodes; j++)
+        {
+            int val;
+            fin >> val;
+
+            if (val)
+            {
+                edgeCount++;
+
+                if (isWeighted)
+                {
+                    Edge e(i, j, val);
+                    adjacencyList[i].push_back(e);
+                }
+                else if (isWeighted)
+                {
+                    Edge e(i, j, 0, val, 0);
+                    adjacencyList[i].push_back(e);
+                }
+                else
+                {
+                    Edge e(i, j);
+                    adjacencyList[i].push_back(e);
+                }
+            }
+        }
+
+    nrEdges = edgeCount;
+}
+
+void Graph :: printAdjacencyMatrix(vector<vector<int>>& matrix)
+{
+    fout << "\n>   nrNodes = " << nrNodes;
+    fout << "\n>   nrEdges = " << nrEdges;
+
+    fout << "\n\n\n>   The ADJACENCY MATRIX associated to the ";
+    isDirected ? fout << "DIRECTED" : fout << "UNDIRECTED";
+    isWeighted ? fout << ", WEIGHTED" : fout << ", UNWEIGHTED";
+    fout << " graph <G>:\n\n\n";
+
+    for (int i = 1; i <= nrNodes; i++)
+    {
+        for (int j = 1; j <= nrNodes; j++)
+            fout << matrix[i][j] << " ";
+        fout << "\n";
+    }
+}
+
+vector<vector<Edge>> Graph :: getAdjacencyListFromMatrix(vector<vector<int>>& adjacencyMatrix)
+{
+    vector<vector<Edge>> adjList(nrNodes + 1);
+
+    for (int i = 1; i <= nrNodes; i++)
+        for (int j = 1; j <= nrNodes; j++)
+        {
+            if (adjacencyMatrix[i][j])
+            {
+                if (isWeighted)
+                {
+                    Edge e(i, j, adjacencyMatrix[i][j]);
+                    adjacencyList[i].push_back(e);
+                }
+                else if (isFlowing)
+                {
+                    Edge e(i, j, 0, adjacencyMatrix[i][j], 0);
+                    adjacencyList[i].push_back(e);
+                }
+                else
+                {
+                    Edge e(i, j);
+                    adjacencyList[i].push_back(e);
+                }
+            }
+        }
+
+    return adjList;
+}
+
+vector<vector<int>> Graph :: getAdjacencyMatrixFromList(vector<vector<Edge>>& adjList)
+{
+    vector<vector<int>> adjMatrix(nrNodes + 1);
+    for (auto& line : adjMatrix)
+    {
+        line.resize(nrNodes + 1);
+        fill(line.begin(), line.end(), 0);
+    }
+
+    for (auto& node : adjList)
+        for (auto& edge : node)
+        {
+            if(isWeighted)
+                adjMatrix[edge.src][edge.dest] = edge.cost;
+            else if(isFlowing)
+                adjMatrix[edge.src][edge.dest] = edge.cap.maxfl;
+            else
+                adjMatrix[edge.src][edge.dest] = 1;
+        }
+
+    return adjMatrix;
 }
 
 
@@ -180,15 +321,15 @@ vector<int> Graph :: getUnweightedDistances(int startingNode)
     return distances;
 }
 
-list<set<int>> Graph :: getConnectedComponents()
+vector<vector<int>> Graph :: getConnectedComponents()
 {
-    list<set<int>> CClist;
+    vector<vector<int>> CClist;
     vector<bool> isVisited(nrNodes + 1, false);
 
     for (int i = 1; i <= nrNodes; i++)
         if (!isVisited[i])
         {
-            set<int> connectedComponent;
+            vector<int> connectedComponent;
             Graph :: DFS(i, isVisited, connectedComponent);
 
             CClist.push_back(connectedComponent);
@@ -197,9 +338,9 @@ list<set<int>> Graph :: getConnectedComponents()
     return CClist;
 }
 
-list<set<int>> Graph :: getStronglyConnectedComponents()
+vector<vector<int>> Graph :: getStronglyConnectedComponents()
 {
-    list<set<int>> SCClist;
+    vector<vector<int>> SCClist;
 
     vector<int> discoveryOrder(nrNodes + 1, 0);
     vector<int> lowestLink(nrNodes + 1, 0);
@@ -213,9 +354,9 @@ list<set<int>> Graph :: getStronglyConnectedComponents()
     return SCClist;
 }
 
-list<set<int>> Graph :: getBiconnectedComponents()
+vector<vector<int>> Graph :: getBiconnectedComponents()
 {
-    list<set<int>> BCClist;
+    vector<vector<int>> BCClist;
 
     vector<int> levels(nrNodes + 1, 0);
     vector<int> lowestLink(nrNodes + 1, 0);
@@ -226,9 +367,9 @@ list<set<int>> Graph :: getBiconnectedComponents()
     return BCClist;
 }
 
-list<pair<int, int>> Graph :: getCriticalEdges()
+vector<pair<int, int>> Graph :: getCriticalEdges()
 {
-    list<pair<int, int>> CElist;
+    vector<pair<int, int>> CElist;
 
     vector<int> discoveryOrder(nrNodes + 1, 0);
     vector<int> lowestLink(nrNodes + 1, 0);
@@ -238,9 +379,9 @@ list<pair<int, int>> Graph :: getCriticalEdges()
     return CElist;
 }
 
-list<int> Graph :: getTopologicalOrder()
+deque<int> Graph :: getTopologicalOrder()
 {
-    list<int> TOlist;
+    deque<int> TOlist;
     vector<bool> isVisited(nrNodes + 1, false);
 
     for (int i = 1; i <= nrNodes; i++)
@@ -264,7 +405,7 @@ bool Graph :: getValidGraph()
     return validity;
 }
 
-void Graph :: getDisjointSets(int nrOp)
+void Graph :: disjointSetsWrapper(int nrOp)
 {
     vector<int> parent;
     parent.push_back(0);
@@ -293,17 +434,24 @@ void Graph :: getDisjointSets(int nrOp)
 vector<int> Graph :: getWeightedDistances(int startingNode)
 {
     vector<int> distance(nrNodes + 1, INF);
+    bool hasNegativeEdge = false;
 
-    Graph :: Dijkstra(startingNode, distance);
+    for (auto& node : adjacencyList)
+    {
+        for (auto& edge : node)
+            if (edge.cost < 0)
+            {
+                hasNegativeEdge = true;
+                break;
+            }
+        if (hasNegativeEdge)
+            break;
+    }
 
-    return distance;
-}
-
-vector<int> Graph :: getBellmanFordDistances(int startingNode)
-{
-    vector<int> distance(nrNodes + 1, INF);
-
-    Graph :: BellmanFord(startingNode, distance);
+    if(hasNegativeEdge)
+        Graph::BellmanFord(startingNode, distance);
+    else
+        Graph :: Dijkstra(startingNode, distance);
 
     return distance;
 }
@@ -326,6 +474,87 @@ vector<pair<int, int>> Graph :: getMinimumSpanningTree(int& minimumCost)
     return MSTlist;
 }
 
+int Graph :: getTreeDiameter()
+{
+    int diameter;
+    vector<int> bfs1, bfs2;
+
+    bfs1 = getUnweightedDistances(1);
+    auto maxInd = distance(bfs1.begin(), max_element(bfs1.begin(), bfs1.end())) + 1;    // index of element with max-value
+
+    bfs2 = getUnweightedDistances(maxInd);
+    diameter = *max_element(bfs2.begin(), bfs2.end()) + 1;
+
+    return diameter;
+}
+
+vector<vector<int>> Graph :: getAllMinimumDistances()
+{
+    vector<vector<int>> distMatrix = getAdjacencyMatrixFromList(adjacencyList);
+
+    Graph :: RoyFloyd(distMatrix);
+
+    return distMatrix;
+}
+
+int Graph :: getMaxFlow(int source, int sink)
+{
+    int maxFlow = 0;
+    vector<int> parent(nrNodes + 1, 0);
+    vector<bool> isVisited(nrNodes + 1, false);
+    vector<vector<Edge>> fluxNetwork(nrNodes + 1, vector<Edge>(nrNodes + 1));
+
+    for (auto& line : adjacencyList)
+        for (auto& edge : line)
+        {
+            Edge backEdge = edge.getReverse();
+            backEdge.cap.maxfl = 0;
+            fluxNetwork[edge.src][edge.dest] = edge;
+            fluxNetwork[edge.dest][edge.src] = backEdge;
+        }
+
+
+    while (checkAugmentingPath(source, sink, parent, isVisited, fluxNetwork) == true)   // Edmonds-Karp algorithm
+    {
+        for (auto& edge : fluxNetwork[sink])
+        {
+            int currentNode = edge.dest;
+
+            if ((fluxNetwork[currentNode][sink].cap.curfl != fluxNetwork[currentNode][sink].cap.maxfl) && isVisited[currentNode])
+            {
+                int bottleNeckValue = INF;
+                int node = sink;
+                parent[sink] = currentNode;
+
+                while (node != source)
+                {
+                    bottleNeckValue = min(bottleNeckValue, fluxNetwork[parent[node]][node].cap.maxfl - fluxNetwork[parent[node]][node].cap.curfl);
+                    node = parent[node];
+                }
+
+                //cout << bottleNeckValue << "\n";
+
+                if (bottleNeckValue)
+                {
+                    int n = sink;
+
+                    while (n != source)
+                    {
+                        fluxNetwork[parent[n]][n].cap.curfl += bottleNeckValue;
+                        fluxNetwork[n][parent[n]].cap.curfl -= bottleNeckValue;
+                        n = parent[n];
+                    }
+                }
+
+                maxFlow += bottleNeckValue;
+            }
+        }
+
+        fill(isVisited.begin(), isVisited.end(), false);
+    }
+
+    return maxFlow;
+}
 
 
 
@@ -349,20 +578,20 @@ void Graph :: BFS(int startingNode, vector<int>& dist)
             }
     }
 
-    dist.erase(dist.begin());    // nu ne place infoarena si indexarea de la 1! :(
+    dist.erase(dist.begin());
 }
 
-void Graph :: DFS(int currentNode, vector<bool>& isVisited, set<int>& connectedComponent)
+void Graph :: DFS(int currentNode, vector<bool>& isVisited, vector<int>& connectedComponent)
 {
     isVisited[currentNode] = true;    // every time recursion takes place on an unvisited node, it's marked as visited, not to be includee in more than 1 connected component;
-    connectedComponent.insert(currentNode);
+    connectedComponent.push_back(currentNode);
 
     for (auto& edge : adjacencyList[currentNode])    // traverses every node in the current node's adjacency list and (if it hadn't already been included in a connected component), continues recursion from it;
         if (!isVisited[edge.dest])
             DFS(edge.dest, isVisited, connectedComponent);
 }
 
-void Graph :: TarjanDFS(int currentNode, vector<int>& discOrder, vector<int>& lowLink, stack<int>& path, vector<bool>& onStack, list<set<int>>& SCClist)
+void Graph :: TarjanDFS(int currentNode, vector<int>& discOrder, vector<int>& lowLink, stack<int>& path, vector<bool>& onStack, vector<vector<int>>& SCClist)
 {
     static int currentID = 1;    // increments and keeps value after each recursion
     discOrder[currentNode] = lowLink[currentNode] = currentID++;    // discOrder: assigns an ID to each node, representing the DFS traversal order;   lowLink: point to the lowest ID that a node can return to
@@ -387,7 +616,7 @@ void Graph :: TarjanDFS(int currentNode, vector<int>& discOrder, vector<int>& lo
 
     if (lowLink[currentNode] == discOrder[currentNode])    // if the lowest returning point of a node is also its discovery ID, it means that the node is the root of its strongly connected component
     {
-        set<int> connectedComp;
+        vector<int> connectedComp;
         int last;
 
         do    // removes all the nodes, until the SCC's root, from the path's stack and inserts them into a new strongly connected component
@@ -396,14 +625,14 @@ void Graph :: TarjanDFS(int currentNode, vector<int>& discOrder, vector<int>& lo
             path.pop();
             onStack[last] = false;
 
-            connectedComp.insert(last);
+            connectedComp.push_back(last);
         } while (currentNode != last);
 
         SCClist.push_back(connectedComp);
     }
 }
 
-void Graph :: BiconnectedDFS(int currentNode, int currentLevel, vector<int>& level, vector<int>& lowLink, stack<int>& path, list<set<int>>& BCClist)
+void Graph :: BiconnectedDFS(int currentNode, int currentLevel, vector<int>& level, vector<int>& lowLink, stack<int>& path, vector<vector<int>>& BCClist)
 {
     path.push(currentNode);    // stores the DFS traversal path
     level[currentNode] = lowLink[currentNode] = currentLevel;    // level: the "depth" of each node in the DFS traversal's tree;   lowLink: point to the lowest "depth" that a node can return to
@@ -420,7 +649,7 @@ void Graph :: BiconnectedDFS(int currentNode, int currentLevel, vector<int>& lev
                                                                             // isi minimizeaza adancimea minima lowLink cu a succesorilor;
             if (lowLink[edge.dest] == level[edge.src]) // cand ajungem la succesorul radacinii componentei, eliminam nodurile pana la radacina din stiva, formand o componenta biconexa;
             {
-                set<int> biconnectedComp;
+                vector<int> biconnectedComp;
                 int last;
 
                 do
@@ -428,17 +657,17 @@ void Graph :: BiconnectedDFS(int currentNode, int currentLevel, vector<int>& lev
                     last = path.top();
                     path.pop();
 
-                    biconnectedComp.insert(last);
+                    biconnectedComp.push_back(last);
                 } while (edge.dest != last);
 
-                biconnectedComp.insert(edge.src);
+                biconnectedComp.push_back(edge.src);
                 BCClist.push_back(biconnectedComp);
             }
         }
     }
 }
 
-void Graph :: CriticalEdgesDFS(int startingNode, int previous, vector<int>& discOrder, vector<int>& lowLink, list<pair<int, int>>& CElist)
+void Graph :: CriticalEdgesDFS(int startingNode, int previous, vector<int>& discOrder, vector<int>& lowLink, vector<pair<int, int>>& CElist)
 {
     static int currentID = 1;
     discOrder[startingNode] = lowLink[startingNode] = currentID++;
@@ -461,7 +690,7 @@ void Graph :: CriticalEdgesDFS(int startingNode, int previous, vector<int>& disc
     }
 }
 
-void Graph :: TopologicalOrderDFS(int startingNode, vector<bool>& isVisited, list<int>& TOlist)
+void Graph :: TopologicalOrderDFS(int startingNode, vector<bool>& isVisited, deque<int>& TOlist)
 {
     isVisited[startingNode] = true;
 
@@ -476,7 +705,7 @@ void Graph :: HavelHakimi(vector<int>& degrees, bool& valid)
 {
     while (!degrees.empty())
     {
-        sort(degrees.begin(), degrees.end(), greater<>());
+        sort(degrees.begin(), degrees.end());
 
         if (degrees[0] == 0)
         {
@@ -553,7 +782,7 @@ void Graph :: Dijkstra(int startingNode, vector<int>& dist)
     }
 
     for (auto& d : dist)
-        d == INF ? d : 0;
+        if (d == INF) d = 0;
 }
 
 void Graph :: BellmanFord(int startingNode, vector<int>& dist)
@@ -598,7 +827,7 @@ void Graph :: BellmanFord(int startingNode, vector<int>& dist)
 
 void Graph :: Kruskal(int& minimumCost, vector<Edge>& edgeList, vector<int>& parent, vector<pair<int, int>>& MSTlist)
 {
-    sort(edgeList.begin(), edgeList.end(), costASC);
+    sort(edgeList.begin(), edgeList.end());
 
     for (auto edge : edgeList)
     {
@@ -614,24 +843,70 @@ void Graph :: Kruskal(int& minimumCost, vector<Edge>& edgeList, vector<int>& par
     }
 }
 
+void Graph :: RoyFloyd(vector<vector<int>>& distMatrix)
+{
+    for (int k = 1; k <= nrNodes; k++)
+        for (int i = 1; i <= nrNodes; i++)
+            for (int j = 1; j <= nrNodes; j++)
+                if ((distMatrix[k][j] && distMatrix[i][k]) && (distMatrix[i][j] == 0 || distMatrix[i][j] > distMatrix[i][k] + distMatrix[k][j]) && (i != j))
+                    distMatrix[i][j] = distMatrix[i][k] + distMatrix[k][j];
+
+}
+
+bool Graph :: checkAugmentingPath(int source, int sink, vector<int>& parent, vector<bool>& isVisited, vector<vector<Edge>>& flowNetwork)
+{
+    queue<int> path;
+    path.push(source);
+
+    while (!path.empty())
+    {
+        int currentNode = path.front();
+        isVisited[currentNode] = true;
+        path.pop();
+
+        cout << currentNode << " ";
+
+        if (currentNode != sink)
+            for (auto& edge : flowNetwork[currentNode])
+                if (!isVisited[edge.dest] && (edge.cap.maxfl != edge.cap.curfl))
+                {
+                    path.push(edge.dest);
+                    parent[edge.dest] = currentNode;
+                }
+    }
+
+    for (int i = 1; i <= 100; i++)
+    {
+        for (int j = 1; j <= 100; j++)
+            if (flowNetwork[i][j].dest != 0) fout << flowNetwork[i][j].dest << " ";
+        fout << "\n";
+    }
+
+    for (auto x : isVisited)
+        cout << x << " ";
+    cout << "\n";
+
+    return isVisited[sink];
+}
+
 #pragma endregion
+
 
 
 
 int main()
 {
-    isDirected = false;
-    isWeighted = false;
-    isFlowing = false;
-
     int nodes, edges, start, operations;
-    fin >> nodes >> operations;
+    fin >> nodes >> edges;
 
-    Graph G(nodes); //G(nodes, edges, isDirected, isWeighted);
+    Graph G(nodes, edges, true, false, true);    // G(nodes, edges, isDirected, isWeighted, isFlowing);
 
-    //G.readAdjacencyList();
+    G.readAdjacencyList();
+    //G.readAdjacencyMatrix();
     //G.printAdjacencyList();
-    
+    //G.printAdjacencyMatrix();
+
+    fout << G.getMaxFlow(1, nodes);
 
 #pragma region Public_Methods_Calls
 
@@ -717,26 +992,13 @@ int main()
     */
 
 
-/* ---> MINIMAL DISTANCES (WEIGHTED) <--- */
+/* ---> MINIMAL DISTANCE (WEIGHTED) <--- */
 
     /*
     vector<int> minDistances_W = G.getWeightedDistances(1);
 
     for (int i = 2; i <= nodes; i++)
         fout << minDistances_W[i] << " ";
-    */
-
-
-/* ---> MINMAL DISTANCES (W/ NEGATIVE COSTS) <--- */
-
-    /*
-    vector<int> minDistances_NegC = G.getBellmanFordDistances(1);
-
-    if (minDistances_NegC[0] == 0)
-        fout << "Ciclu negativ!";
-    else
-        for (int i = 2; i <= nodes; i++)
-            fout << minDistances_NegC[i] << " ";
     */
 
 
@@ -760,5 +1022,28 @@ int main()
     */
 
 
+/* ---> TREE DIAMETER <--- */
+
+    /*
+    int diameter =  G.getTreeDiameter();
+    fout << diameter;
+    */
+
+
+/* ---> ALL MINIMAL DISTANCES <--- */
+
+    /*
+    vector<vector<int>> allMin_Dist = G.getAllMinimumDistances();
+
+    for (int i = 1; i <= nodes; i++)
+    {
+        for (int j = 1; j <= nodes; j++)
+            fout << allMin_Dist[i][j] << " ";
+        fout << "\n";
+    }
+    */
+
+
 #pragma endregion
+
 }
