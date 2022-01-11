@@ -1,6 +1,7 @@
 #TEMA LABORATOR 3 - R:
 
 
+
 #
 # PROBLEMA 8
 #
@@ -37,6 +38,7 @@ cat("Cel mai mult s-a vorbit in zilele de", names(which(colnames(fourWeeks) == d
 cat("Cel mai putin s-a vorbit in zilele de", names(which(colnames(fourWeeks) == dMin)), "\n")
 cat("Zilele in care s-a vorbit > 120 min sunt: ")
 print(selection120)
+
 
 
 #
@@ -83,6 +85,7 @@ for(i in 1:length(transmissionTypes))
 
 cat("Media consumului masinilor, in functie de tipul transmisiei si al nr. cilindrilor:")
 print(fr)
+
 
 
 #

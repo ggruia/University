@@ -1,5 +1,0 @@
-username:grupa31
-password:grupa31
-hostname:193.226.51.37
-port:1521
-SID:o11g

@@ -13,7 +13,7 @@ class Collection myMap where
     values :: myMap key value -> [value]
     values xs = [snd x | x <- toList xs] 
     fromList :: Ord key => [(key, value)] -> myMap key value
-    fromList xs = foldr (uncurry insert) empty xs
+    fromList = foldr (uncurry insert) empty
     toList :: myMap key value -> [(key, value)]
 
 -- 1.
@@ -38,7 +38,7 @@ instance Collection PairList where
                 | fst x == k = del k xss
                 | otherwise = x : del k xss
 
-    toList xs = getPairList xs
+    toList = getPairList
 
 -- 2.
 data SearchTree key value = Empty | Node
@@ -92,61 +92,5 @@ instance Ord k => Ord (Element k v) where
 -- c)
 instance (Show k, Show v) => Show (Element k v) where
     show (Element k (Just v)) = "("++ show k ++ ","++ show v++")"
-    show (Element k (Nothing)) = show k
+    show (Element k Nothing) = show k
     show OverLimit = "[]"
-
--- 4.
-{-data BTree key value = BEmpty | BNode [(BTree key value, Element key value)] deriving (Show, Eq)
-
-instance Collection BTree where
-    empty = BEmpty
-    singleton a b = BNode [(BEmpty, Element a (Just b)), (BEmpty, OverLimit)]
-
-    lookup _ BEmpty = Nothing
-    lookup k (BNode list) = go list
-        where
-            go ((less_than_key, OverLimit): list') = lookup k less_than_key
-            go ((less_than_key, Element key o): list')
-                | k == key = o
-                | k < key = lookup k less_than_key
-                | k > key = go list'
-
-            delete _ BEmpty = BEmpty
-            delete k (BNode list) = BNode (go list)
-                where
-                    go ((less_than_key, OverLimit): list') = (delete k less_than_key, OverLimit): list'
-                    go ((less_than_key, Element key o): list')
-                        | k == key = (less_than_key, Element key Nothing): list'
-                        | k < key = ((delete k less_than_key, Element key o): list')
-                        | k > key = (less_than_key, Element key o): go list'
-
-            toList BEmpty = []
-            toList (BNode list) = go list
-                where
-                    go ((less_than_key, OverLimit):_) = toList less_than_key
-                    go ((less_than_key, e): list') = toList less_than_key ++ elemToList e ++ go list'
-            elemToList (Element key Nothing) = []
-            elemToList (Element key (Just v)) = [(key, v)]
-
-            insert k v tree = fst (insert' k v tree)
-                where
-                    insert' k v BEmpty = (singleton k v, True)
-                    insert' k v (BNode list) = echilibreaza (go list)
-
-            go ((less_than_key, OverLimit): list') =
-                let (less_than_key', e) = insert' k v less_than_key
-                    in if e then let (BNode [(less_than_key'', element'),(greater_than_key'', OverLimit)]) = less_than_key' in [(less_than_key'', element'), (greater_than_key'',OverLimit)]
-                        else (less_than_key', OverLimit): list'
-            go ((less_than_key, Element key o): list')
-                | k == key = (less_than_key, Element key (Just v)): list'
-                | k < key = let (less_than_key', e) = insert' k v less_than_key
-                                in if e then let (BNode [(less_than_key'', element'),(greater_than_key'', OverLimit)]) = less_than_key' in (less_than_key'', element'): (greater_than_key'',Element key o): list'
-                                    else (less_than_key', Element key o): list'
-                                        | k > key = (less_than_key, Element key o): go list'
-            echilibreaza noduri
-                | lnod <= 2 * order + 1 = (BNode noduri, False)
-                | otherwise = (BNode [( BNode (mici ++ [(mijlocii, OverLimit)]), emijloc), (BNode mari, OverLimit)], True)
-                    where
-                        lnod = length noduri
-                        mici = take order noduri
-                        ((mijlocii, emijloc):mari) = drop order noduri-}

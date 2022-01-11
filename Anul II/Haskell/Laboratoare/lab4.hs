@@ -11,7 +11,7 @@ prim n
 
 -- 3.
 numerePrime :: Int -> [Int]
-numerePrime n = [x | x <- [2..n], prim x == True]
+numerePrime n = [x | x <- [2..n], prim x]
 
 -- 4.
 myzip3 :: [a] -> [b] -> [c] -> [(a, b, c)]
@@ -49,9 +49,9 @@ infixr 6 *<*
     |otherwise = False
 
 -- 9.
-compuneList :: (b -> c) -> [(a -> b)] -> [( a -> c)]
+compuneList :: (b -> c) -> [a -> b] -> [ a -> c]
 compuneList f fxs = [f.g | g <- fxs]
 
 -- 10.
-aplicaList :: a -> [(a -> b)] -> [b]
+aplicaList :: a -> [a -> b] -> [b]
 aplicaList x fxs = [n x | n <- fxs]
