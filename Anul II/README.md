@@ -1,5 +1,5 @@
 # Year II
-Projects and Homework I worked on during my **SECOND** Year at University.
+Projects and Homework I worked on during my **SECOND** year at University.
 
 ### Educational plan
 | Semester | Acronym | Subject                                          | C | S | L | P | FE | Credits |
