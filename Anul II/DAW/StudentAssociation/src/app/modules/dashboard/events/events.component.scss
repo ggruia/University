@@ -1,0 +1,49 @@
+@import '/src/variables.scss';
+
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.content {
+    border-radius: 0.3em;
+    
+
+    .header {
+        background-color: $primary-dark;
+        color: white;
+        border-radius: .3em;
+        margin: .2em;
+        padding: .5em;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+        flex: 1;
+        justify-content: space-around;
+    }
+
+
+    .accordion {
+        max-height: 35em;
+        overflow: auto;
+        border-radius: .2em;
+
+        .registered-events {
+            background-color: lightgreen;
+            border: .5em solid lightgreen;
+            border-radius: .5em;
+        }
+        .unregistered-events {
+            background-color: lightcoral;
+            border: .5em solid lightcoral;
+            border-radius: .5em;
+        }
+
+        .time-range {
+            display: flex;
+            flex: 1;
+        }
+    }
+}

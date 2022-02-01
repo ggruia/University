@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="content">
+            <div class="title">
+                STUDENT ASSOCIATION
+            </div>
+
+        <mat-toolbar color="primary">
+            <mat-tab-group (selectedTabChange)="tabSelect($event)" backgroundColor="primary">
+                <mat-tab label="Profile"></mat-tab>
+                <mat-tab label="My Associations"></mat-tab>
+                <mat-tab label="Events"></mat-tab>
+            </mat-tab-group>
+
+            <div  class="logout-section">
+                {{username | uppercase}}
+                <button mat-icon-button (click)="logout()">
+                    <mat-icon>keyboard_return</mat-icon>
+                </button>
+            </div>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+    </div>
+</div>

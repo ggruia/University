@@ -1,0 +1,70 @@
+@import '/src/variables.scss';
+
+.container::before {
+    transform: scale(1.02); // cam cheaty, dar asta e css
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    content: '';
+    background-image: url('https://discover.therookies.co/content/images/size/w1000/2020/12/TheAnimatatoinWorshop_01.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(6px);
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    .content {
+        background-color: rgba(255, 255, 255, 0.671);
+        border-radius: 1em;
+        width: 70%;
+        height: 70%;
+        padding: 2em;
+
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2.5em;
+            font-size: 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            color: $font;
+        }
+
+        .mat-toolbar {
+            border-radius: .3em;
+
+            ::ng-deep.mat-tab-label.mat-tab-label-active {
+                background-color: $primary-dark;
+                border-radius: .3em;
+            }
+
+            .logout-section {
+                margin-left: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                button {
+                    
+                    .mat-icon {
+                        font-size: 30px;
+                    }
+                }
+            }
+
+            
+        }
+    }
+}

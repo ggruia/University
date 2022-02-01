@@ -1,0 +1,22 @@
+<div class="content">
+    <div class="header">
+        <div>Acronym</div>
+        <div>Name</div>
+    </div>
+
+    <div class="accordion">
+        <mat-accordion>
+            <mat-expansion-panel hideToggle *ngFor="let asc of associations">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{asc.id}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{asc.name}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{asc.description}}</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

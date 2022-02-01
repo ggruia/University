@@ -1,0 +1,30 @@
+
+<div class="content">
+    <div class="title">MY PROFILE</div>
+
+    <div class="info">
+        <mat-card>
+            <mat-card-header>
+                <div mat-card-avatar></div>
+                <mat-card-title>{{user.username}}</mat-card-title>
+                <mat-card-subtitle>{{user.role}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="http://www.incdsb.ro/p/MODASYS/img/img_project_leaders/andrei_paun.jpg">
+        </mat-card>
+
+
+        <div class="details">
+            <mat-list>
+                <mat-list-item>Name: {{user.name}}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Address: {{user.address}}</mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item>Registration: {{user.date}}</mat-list-item>
+            </mat-list>
+
+            <button mat-fab color="primary">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

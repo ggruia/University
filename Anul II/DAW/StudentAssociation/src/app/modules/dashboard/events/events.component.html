@@ -1,0 +1,80 @@
+<div class="content">
+    <div class="header">
+        <div>Name</div>
+        <div>Commitee</div>
+        <div>Location</div>
+        <div>Availability</div>
+    </div>
+
+    <div class="accordion">
+        <div class="registered-events">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle *ngFor="let e of eventsOfMember">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{e.name}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{e.commiteeId | paranthesis}}
+                        </mat-panel-description>
+                        <mat-panel-description>
+                            {{e.location}}
+                        </mat-panel-description>
+                        <mat-panel-description>
+                            <mat-icon *ngIf="e.isCanceled == false">check</mat-icon>
+                            <mat-icon *ngIf="e.isCanceled == true">close</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+            
+                    <p>{{e.description}}</p><br>
+                    <div class="time-range">
+                        <p>Starting at: </p>
+                        <mat-form-field>
+                            <input matInput disabled placeholder="{{e.startTime}}">
+                        </mat-form-field>
+                        <p>Ending at: </p>
+                        <mat-form-field>
+                            <input matInput disabled placeholder="{{e.endTime}}">
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+
+        <br>
+
+        <div class="unregistered-events">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle *ngFor="let e of excludedEventsOfMember">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{e.name}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            {{e.commiteeId | paranthesis}}
+                        </mat-panel-description>
+                        <mat-panel-description>
+                            {{e.location}}
+                        </mat-panel-description>
+                        <mat-panel-description>
+                            <mat-icon *ngIf="e.isCanceled == false">check</mat-icon>
+                            <mat-icon *ngIf="e.isCanceled == true">close</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                
+                    <p>{{e.description}}</p><br>
+                    <div class="time-range">
+                        <p>Starting at: </p>
+                        <mat-form-field>
+                            <input matInput disabled placeholder="{{e.startTime}}">
+                        </mat-form-field>
+                        <p>Ending at: </p>
+                        <mat-form-field>
+                            <input matInput disabled placeholder="{{e.endTime}}">
+                        </mat-form-field>
+                    </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

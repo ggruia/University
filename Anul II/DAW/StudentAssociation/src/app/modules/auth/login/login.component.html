@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="form-section">
+        <h1 class="title">
+            Welcome!
+        </h1>
+
+        <form [formGroup]="loginForm">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput required placeholder="Username" formControlName="username" autocomplete="off"/>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput required placeholder="Password" type="password" formControlName="password" autocomplete="off"/>
+            </mat-form-field>
+        </form>
+
+        <button mat-raised-button class="login-button" (click)="login()">
+            Login
+        </button>
+
+        <div class="signup-section">
+            Don't have an account? Sign up <a class="signup-link" routerLink="/auth/register">here</a>!
+        </div>
+    </div>
+</div>
