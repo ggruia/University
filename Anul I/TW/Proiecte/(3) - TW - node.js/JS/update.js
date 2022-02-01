@@ -42,6 +42,6 @@ async function editPost(gameID) {
             'Content-Type': 'application/json'
         }
     }).then(function() {
-        window.location.replace('/HTML/games.html');
+        window.location.replace('../HTML/games.html');
     })
 }

@@ -72,7 +72,7 @@ function renderGames() {
                 };
 
                 let edit_img = document.createElement("img");
-                edit_img.setAttribute("src", "/Images/edit_img.png")
+                edit_img.setAttribute("src", "../Images/edit_img.png")
 
                 edit_button.appendChild(edit_img);
 
@@ -84,7 +84,7 @@ function renderGames() {
                 };
 
                 let delete_img = document.createElement("img");
-                delete_img.setAttribute("src", "/Images/delete_img.png")
+                delete_img.setAttribute("src", "../Images/delete_img.png")
 
                 delete_button.appendChild(delete_img);
 

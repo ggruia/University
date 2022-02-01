@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Righteous&display=swap");
 
 body{
-  background-image: url("/Images/background.png");
+  background-image: url("../Images/background.png");
   background-color: black;
 }
 
@@ -46,7 +46,7 @@ body{
   
     .content{
       background-color: black;
-      background-image: url("/Images/content_header.png");
+      background-image: url("../Images/content_header.png");
       background-size: 100%;
       background-repeat: no-repeat;
       width: 37vw;

@@ -973,16 +973,16 @@ bool Graph :: CheckAugmentingPath(int source, int sink, vector<int>& parent, vec
                 }
     }
 
-    for (int i = 1; i <= 100; i++)
+    /*for (int i = 1; i <= 100; i++)
     {
         for (int j = 1; j <= 100; j++)
             if (flowNetwork[i][j].dest != 0) fout << flowNetwork[i][j].dest << " ";
         fout << "\n";
-    }
+    }*/
 
-    for (auto x : isVisited)
+    /*for (auto x : isVisited)
         cout << x << " ";
-    cout << "\n";
+    cout << "\n";*/
 
     return isVisited[sink];
 }
