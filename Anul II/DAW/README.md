@@ -22,3 +22,4 @@ Each Commitee can create and alter Events, that every Member of that
   - UI implemented with Angular **Material Module**, **Theming** and SCSS
   - Managed the data transfer to-and-from the database with Angular **Services**, **Directives** and **Pipes**
   - Secured user-access using **Guards**
+  - [Project](https://github.com/ggruia/University-Projects/tree/main/Anul%20II/DAW/StudentAssociation)
