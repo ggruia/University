@@ -1,0 +1,49 @@
+Laborator 3)
+
+
+DONE
+6. (Lab:2, Acasa:1) Pentru A*:
+Schimbati algoritmul astfel incat să avem pentru fiecare nod un cost asociat, pus intr-un vector de costuri, de exemplu, costuri=[10, 20, 5, ... etc.].
+Costul de pe pozitia i corespunde nodului de pe pozitia i din lista de nodeLabels.
+Nu vom mai avea o matrice de costuri pentru muchii, deoarece costul se aplica cand intram intr-un nod
+(toate arcele care intra in nodul i au asociat costul lui i, de pe pozitia i, din vectorul de nodeLabels).
+De exemplu, daca nodul c are costul 8, atunci a->c, e->c au ambele asociate costul 8.
+
+
+DONE
+7. (Lab:1, Acasa:1) - Pentru A*:
+La adăugarea în coadă, realizați și ordonarea dupa g, in ordine descrescatoare, pentru f-uri egale.
+
+
+DONE - TODO
+8. (Lab:3, Acasa:1) Pentru A*:
+Implementare A* cu o structura de tip PriorityQueue
+(din modulul queue: https://docs.python.org/3/library/queue.html).
+Pentru ca această structură să funcționeze, obiectele din coadă au nevoie de o relație de ordine definită pentru ele, deci definiți un minim de operatori.
+Ordonarea trebuie făcută crescător după f, iar, pentru f-uri egale, descrescător după g. 
+Comparați cu cProfiler performanța funcției voastre față de cea dată în laborator.
+
+
+TODO - Discutabil ????????
+9. (Lab:2, Acasa:1) - Pentru A* optimizat:
+Afisati la fiecare inlocuire in cozile open, respectiv closed (cand nodul e sters din closed si adaugat succesorul in open), ce nod a fost inlocuit si de catre cine.
+Afisati la final, dupa solutie, numarul de noduri inlocuite in open si numarul de noduri inlocuite in closed.
+
+
+TODO
+10. (Lab:4, Acasa:2) - Pentru A* optimizat:
+Implementați A* optimizat (cel cu listele open si closed) folosind pentru coadă o structura de tip PriorityQueue
+(pe baza lui heapq, așa cum e indicat la: https://programmathically.com/priority-queue-and-heapq-in-python/).
+Avem nevoie de propria implementare deoarece dorim sa înlocuim nodurile cu aceeași informație din listă dar cu cost mai mare
+(ștergerea și înlocuirea cu succesorul de cost mai mic e necesară pentru a nu ajunge coada prea mare în memorie, plină cu noduri inutile).
+Pentru ca această structură să funcționeze, obiectele din coadă au nevoie de o relație de ordine definită pentru ele, deci definiți un minim de operatori.
+Ordonarea trebuie făcută crescător după f, iar, pentru f-uri egale, descrescător după g.
+Pentru lista closed în care trebuie să găsiți rapid un nod după informație, folosiți un dicționar având drept chei chiar informațiile (sau un id) pentru noduri. 
+Comparați cu cProfiler performanța funcției voastre față de cea dată în laborator.
+
+
+TODO
+11. (Lab:2, Acasa:1) Pentru A* iterativ:
+La afisarea solutiei pt A* iterativ, afisati timpul pana la obtinerea unei solutii
+(calculat de la inceputul programului, deci pentru soluția 2 va fi timpul de aflare al soluției 1 + timpul care a trecut între afișările soluției 1 și soluției 2)
+si pentru fiecare nod parcurs de cate ori a fost extins in total (practic din cate iteratii a facut parte) (ca la DFI).

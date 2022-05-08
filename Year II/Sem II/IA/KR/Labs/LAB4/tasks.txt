@@ -1,0 +1,42 @@
+DONE
+12. (Lab:2, Acasa:1)
+Modificati euristicile admisibile 1 si 2 pentru problema blocurilor, astfel incat sa ia in considerare si costul blocului de mutat
+(cel care nu e la locul lui) - adica pentru un bloc care nu e bine plasat sa se adune costului lui efectiv la "h", nu costul minim 1.
+
+13. (Lab:3, Acasa:2)
+Să se modifice problema blocurilor astfel încât să consideram ca o stare este scop dacă toate stivele din ea sunt de înălțimi egale
+(indiferent ce avem pe stive). Se va implemeta și o funcție care verifică dacă din starea inițială e posibil să ajungem la o stare finală.
+Modificați și euristica în mod corespunzător pentru noul criteriu de stare finală.
+
+14. (Lab:3, Acasa:2)
+Să se modifice problema blocurilor astfel încât să consideram ca o stare este scop daca drumul până la acea stare
+trece prin toate starile precizate dupa "stari_finale" o singura data (nu neapărat în ordinea dată în fișier),
+și se termina cu o stare scop (pentru a testa problema puneți întâi ca stări finale 2-3 stări nu foarte depărtate între ele).
+Gasiti o euristica admisibila (diferita de cele date deja) potrivită pentru problema blocurilor modificată în modul precizat.
+În cazul în care timpul de execuție este mare, revedeți euristica și rulați programul și cu cProfiler pentru a identifica funcțiile neperformante. 
+
+15. (Lab:4, Acasa:2)
+Pentru problema blocurilor data la laborator, scrieti o functie care verifica daca fisierul de intrare dat la problema blocurilor este valid
+(ofera toate informatiile) si afisati un mesaj de eroare in caz ca nu, oprind apoi programul.
+Daca fisierul este valid ca structura, verificati daca din starea initiala data se poate ajunge la starile finale precizate.
+Daca nu se poate ajunge, afisati mesajul "Problema nu are solutii".
+Cazuri in care nu se poate ajunge la starile finale: 
+- toate starile finale au alta mutime de blocuri decat cea initiala
+- toate starile finale au alt numar de stive decat starea initiala
+- starea intiala si cele finale au doar 1 stiva si nicio stare finala nu e egala cu cea initiala
+- starea initiala are doua stive si nicio stare finala nu are proprietatea ca are doar 2 stive si
+concatenand in varful stivei 1 stiva 2 inversata obtinem acelasi rezultat pe care l-am obtine si pentru starea initiala facand aceeasi operatie.
+De exemplu, starea initiala= [["a","b","c"], ["e","d"]], si starea finala [["a"], ["e","d","c","b"]] sunt ok,
+dar starea finala [["a","c","b"], ["e","d"]] nu este ok.
+
+
+16. (Lab:4, Acasa:2)
+Să se modifice problema canibalilor si misionarilor considerând un nou tip de stare scop.
+Se considera ca scopul canibalilor si misionarilor este doar sa viziteze fiecare malul drept, sa stea minim o zi
+(o zi=un drum cu barca dus-intors) si apoi sa se intoarca pe acelasi mal.
+(Este necesară o rezolvare completa cu modificarea funcției de generare de succesori, a celei de testare a scopului și a celei de calculare a euristicii).
+
+
+17. (Lab:4, Acasa:2)
+Modificați problema canibalilor și misionarilor astfel încât scopul să fie doar sa mutam misionarii pe un mal rămânând toti canibalii pe celălalt.
+Modificati testul pentru starea scop si euristica.

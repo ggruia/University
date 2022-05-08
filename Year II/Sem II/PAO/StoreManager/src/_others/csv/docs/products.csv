@@ -1,0 +1,14 @@
+ID, NAME, PRICE, EXPIRATION_PERIOD, DESCRIPTION, SUPPLIER_ID
+1, broccoli, 15.00, 7, Small edible tree, 1
+2, sandwich, 10.00, 2, Sand witch, 3
+3, orange juice, 5.00, 2, Orange lifeblood, 4
+4, banana, 3.00, 2, MONKE, 2
+5, vinaigrette, 8.00, 1, Vinegar and Garret, 6
+6, curry, 15.00, 4, (p)rice, 8
+7, soup, 8.00, 2, Soup-er, 5
+8, caesar salad, 5.00, 2, Best salad, 6
+9, green tea, 3.00, 2, Tea-hee!, 4
+10, lemonade, 7.00, 3, When life gives you lemons, 4
+11, mashed potatoes, 4.00, 2, Puree, 8
+12, chicken nuggets, 6.00, 3, Nuggies, 8
+13, hot chocolate, 10.30, 5, Choccy milk, 4

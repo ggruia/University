@@ -1,0 +1,17 @@
+id,name,price,expDays,description,categoryId
+1,kiwi,8.4,6,"Is it a bird?",2
+2,broccoli,15,7,"Small edible tree",1
+3,sandwich,10,2,"Sand witch",3
+4,"orange juice",5,2,OJ,4
+5,banana,3,2,MONKE,2
+6,vinaigrette,8,1,"? Salad ?",6
+7,curry,15,4,(p)rice,8
+8,soup,8,2,Soup-er,5
+9,"caesar salad",5,2,"Best salad",6
+10,"green tea",3,2,Tea-hee!,4
+11,lemonade,7,3,"When life gives you lemons...",4
+12,"mashed potatoes",4,2,Puree,8
+13,"chicken nuggets",6,3,Nuggies,8
+14,"hot chocolate",10.3,5,"Choccy milk!",4
+15,"spring water",1.2,20,"Purest water",3
+16,chips,3.2,4,"Potato slices",7

@@ -1,0 +1,7 @@
+dimensiune_populatie = 20
+interval = [0, 3]
+coeficienti_polinom = [-3, 9, 6]
+precizie = 6
+probabilitate_recombinare = 0.25
+probabilitate_mutatie = 0.01
+numar_etape = 100

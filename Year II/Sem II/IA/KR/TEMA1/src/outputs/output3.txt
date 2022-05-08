@@ -1,0 +1,276 @@
+SOLUTION:
+   - length: 12
+   - cost: 18
+   - time: 0.023 sec.
+   - max instances: 274
+   - all instances: 444
+
+1)
+2 f1 2 0
+1 0 1 2
+0 0 0 1
+2 1 2 0
+
+2)
+Furnica de la (0, 1) s-a deplasat la (1, 1)
+2 1 2 0
+1 f0 1 2
+0 0 0 1
+2 1 2 0
+
+3)
+Furnica de la (1, 1) s-a deplasat la (2, 1)
+2 1 2 0
+1 0 1 2
+0 f0 0 1
+2 1 2 0
+
+4)
+Furnica de la (2, 1) s-a deplasat la (3, 1)
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 f1 2 0
+
+5)
+Furnica de la (3, 1) s-a deplasat la (3, 2)
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 1 f2 0
+
+6)
+Furnica de la (3, 2) s-a deplasat la (3, 1) cu bob
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 f2 1 0
+
+7)
+Furnica de la (3, 1) s-a deplasat la (3, 2)
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 2 f1 0
+
+8)
+Furnica de la (3, 2) s-a deplasat la (2, 2) cu bob
+2 1 2 0
+1 0 1 2
+0 0 f1 1
+2 2 0 0
+
+9)
+Furnica de la (2, 2) s-a deplasat la (1, 2) cu bob
+2 1 2 0
+1 0 f2 2
+0 0 0 1
+2 2 0 0
+
+10)
+Furnica de la (1, 2) s-a deplasat la (1, 3)
+2 1 2 0
+1 0 2 f2
+0 0 0 1
+2 2 0 0
+
+11)
+Furnica de la (1, 3) s-a deplasat la (2, 3)
+2 1 2 0
+1 0 2 2
+0 0 0 f1
+2 2 0 0
+
+12)
+Furnica de la (2, 3) s-a deplasat la (1, 3) cu bob
+2 1 2 0
+1 0 2 f3
+0 0 0 0
+2 2 0 0
+
+-------------------------------------------
+
+SOLUTION:
+   - length: 12
+   - cost: 18
+   - time: 0.024 sec.
+   - max instances: 283
+   - all instances: 458
+
+1)
+2 f1 2 0
+1 0 1 2
+0 0 0 1
+2 1 2 0
+
+2)
+Furnica de la (0, 1) s-a deplasat la (1, 1)
+2 1 2 0
+1 f0 1 2
+0 0 0 1
+2 1 2 0
+
+3)
+Furnica de la (1, 1) s-a deplasat la (2, 1)
+2 1 2 0
+1 0 1 2
+0 f0 0 1
+2 1 2 0
+
+4)
+Furnica de la (2, 1) s-a deplasat la (3, 1)
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 f1 2 0
+
+5)
+Furnica de la (3, 1) s-a deplasat la (3, 2)
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 1 f2 0
+
+6)
+Furnica de la (3, 2) s-a deplasat la (3, 1) cu bob
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 f2 1 0
+
+7)
+Furnica de la (3, 1) s-a deplasat la (3, 2)
+2 1 2 0
+1 0 1 2
+0 0 0 1
+2 2 f1 0
+
+8)
+Furnica de la (3, 2) s-a deplasat la (2, 2) cu bob
+2 1 2 0
+1 0 1 2
+0 0 f1 1
+2 2 0 0
+
+9)
+Furnica de la (2, 2) s-a deplasat la (2, 1) cu bob
+2 1 2 0
+1 0 1 2
+0 f1 0 1
+2 2 0 0
+
+10)
+Furnica de la (2, 1) s-a deplasat la (2, 2)
+2 1 2 0
+1 0 1 2
+0 1 f0 1
+2 2 0 0
+
+11)
+Furnica de la (2, 2) s-a deplasat la (2, 3)
+2 1 2 0
+1 0 1 2
+0 1 0 f1
+2 2 0 0
+
+12)
+Furnica de la (2, 3) s-a deplasat la (1, 3) cu bob
+2 1 2 0
+1 0 1 f3
+0 1 0 0
+2 2 0 0
+
+-------------------------------------------
+
+SOLUTION:
+   - length: 12
+   - cost: 18
+   - time: 0.032 sec.
+   - max instances: 338
+   - all instances: 582
+
+1)
+2 f1 2 0
+1 0 1 2
+0 0 0 1
+2 1 2 0
+
+2)
+Furnica de la (0, 1) s-a deplasat la (1, 1)
+2 1 2 0
+1 f0 1 2
+0 0 0 1
+2 1 2 0
+
+3)
+Furnica de la (1, 1) s-a deplasat la (2, 1)
+2 1 2 0
+1 0 1 2
+0 f0 0 1
+2 1 2 0
+
+4)
+Furnica de la (2, 1) s-a deplasat la (2, 2)
+2 1 2 0
+1 0 1 2
+0 0 f0 1
+2 1 2 0
+
+5)
+Furnica de la (2, 2) s-a deplasat la (2, 3)
+2 1 2 0
+1 0 1 2
+0 0 0 f1
+2 1 2 0
+
+6)
+Furnica de la (2, 3) s-a deplasat la (2, 2) cu bob
+2 1 2 0
+1 0 1 2
+0 0 f1 0
+2 1 2 0
+
+7)
+Furnica de la (2, 2) s-a deplasat la (2, 1) cu bob
+2 1 2 0
+1 0 1 2
+0 f1 0 0
+2 1 2 0
+
+8)
+Furnica de la (2, 1) s-a deplasat la (3, 1)
+2 1 2 0
+1 0 1 2
+0 1 0 0
+2 f1 2 0
+
+9)
+Furnica de la (3, 1) s-a deplasat la (3, 2)
+2 1 2 0
+1 0 1 2
+0 1 0 0
+2 1 f2 0
+
+10)
+Furnica de la (3, 2) s-a deplasat la (3, 1) cu bob
+2 1 2 0
+1 0 1 2
+0 1 0 0
+2 f2 1 0
+
+11)
+Furnica de la (3, 1) s-a deplasat la (3, 2)
+2 1 2 0
+1 0 1 2
+0 1 0 0
+2 2 f1 0
+
+12)
+Furnica de la (3, 2) s-a deplasat la (3, 1) cu bob
+2 1 2 0
+1 0 1 2
+0 1 0 0
+2 f3 0 0
+
+-------------------------------------------
+

@@ -1,0 +1,15 @@
+SOLUTION:
+   - length: 1
+   - cost: 0
+   - time: 0.0 sec.
+   - max instances: 1
+   - all instances: 1
+
+1)
+2 1 f0 f1 1
+0 2 3 0 1
+1 0 0 0 1
+2 0 0 0 2
+
+-------------------------------------------
+
