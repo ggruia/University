@@ -1,74 +1,13 @@
 import time
 import pygame
 import sys
+from menu import menu
 from state import State
 from game import Game
-from button import Button, ButtonGroup
 from algorithms import minimax, alphabeta
 
 
 MAX_DEPTH = 4
-
-
-
-def menu(screen):
-	algChoice = ButtonGroup(
-		top=20,
-		left=30,
-		buttons=[
-			Button(display=screen, width=70, height=30, text="minimax", value="minimax"), 
-			Button(display=screen, width=70, height=30, text="alphabeta", value="alphabeta")],
-		selection=0)
-
-	plrChoice = ButtonGroup(
-		top=80,
-		left=30,
-		buttons=[
-			Button(display=screen, width=70, height=30, text="NEGRU", value="x"), 
-			Button(display=screen, width=70, height=30, text="ALB", value="0")],
-		selection=0)
-
-	diffChoice = ButtonGroup(
-		top=140,
-		left=30,
-		buttons=[
-			Button(display=screen, width=70, height=30, text="incepator", value="incepator"), 
-			Button(display=screen, width=70, height=30, text="mediu", value="mediu"),
-			Button(display=screen, width=70, height=30, text="avansat", value="avansat")],
-		selection=0)
-	
-	boardChoice = ButtonGroup(
-		top=200,
-		left=30,
-		buttons=[
-			Button(display=screen, width=70, height=30, text="7 x 7", value="7"), 
-			Button(display=screen, width=70, height=30, text="9 x 9", value="9"),
-			Button(display=screen, width=70, height=30, text="10 x 10", value="10")],
-		selection=0)
-
-	ok = Button(display=screen, top=260, left=30, width=70, height=30, text="ok", bgColor=(155,0,55))
-
-	algChoice.drawButtons()
-	plrChoice.drawButtons()
-	diffChoice.drawButtons()
-	boardChoice.drawButtons()
-	ok.draw()
-
-	while True:
-		for event in pygame.event.get(): 
-			if event.type== pygame.QUIT:
-				pygame.quit()
-				sys.exit()
-			elif event.type == pygame.MOUSEBUTTONDOWN: 
-				pos = pygame.mouse.get_pos()
-				if not algChoice.selectBtnByCoords(pos):
-					if not plrChoice.selectBtnByCoords(pos):
-						if not diffChoice.selectBtnByCoords(pos):
-							if not boardChoice.selectBtnByCoords(pos):
-								if ok.selectByCoords(pos):
-									screen.fill((0, 0, 0))
-									return (algChoice.getValue(), plrChoice.getValue(), diffChoice.getValue(), boardChoice.getValue())
-		pygame.display.update()
 
 
 
@@ -88,17 +27,15 @@ def main():
 	Game.prepare(screen, boardSize, cellSize)
 	board = Game(boardSize)
 	board.drawGrid()
-	
-	print(Game.JMIN, algorithm)
 
-	Game.JMAX= '0' if Game.JMIN == 'x' else 'x'
+	Game.JMAX= 'W' if Game.JMIN == 'B' else 'B'
 
 
-	print("Tabla initiala")
+	print("\nInitial state:")
 	print(str(board))
 
 	#creare stare initiala
-	stare_curenta = State(board, 'x', MAX_DEPTH)
+	stare_curenta = State(board, 'B', MAX_DEPTH)
 
 	board.drawGrid()
 

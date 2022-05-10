@@ -14,7 +14,7 @@ public class JDBCService {
             instance = new JDBCService();
 
             String jdbcDriver = "com.mysql.cj.jdbc.Driver";
-            String address = "jdbc:mysql://localhost:3306/";
+            String address = "jdbc:mysql://localhost:3036/";
             String db = "storemanagementdb";
             String username = "ggruia";
             String password = "ggruia";

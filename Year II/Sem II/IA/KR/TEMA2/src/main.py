@@ -2,9 +2,17 @@ import pygame
 import sys
 
 
+BOARD_COLOR = (199, 105, 42)
+BOARD_WIDTH = 800
+BOARD_BORDER = 75
+STONE_RADIUS = 22
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+TURN_POS = (BOARD_BORDER, 20)
+SCORE_POS = (BOARD_BORDER, BOARD_WIDTH - BOARD_BORDER + 30)
 
-culoareEcran = (255, 255, 255)
-culoareLinii = (160, 160, 160)
+boardColor = (255, 255, 255)
+lineColor = (160, 160, 160)
 
 icon = pygame.image.load("images/logo.png")
 pygame.display.set_icon(icon)

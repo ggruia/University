@@ -2,13 +2,16 @@ import pygame
 import copy
 
 
+EMPTY = '.'
+BLACK = "B"
+WHITE = "W"
+
+
 class Game:
     SIZE = None
-
     JMIN = None
     JMAX = None
-    GOL = '.'
-    
+
     scor_maxim = 0
 
 
@@ -17,7 +20,7 @@ class Game:
 
         match config:
             case None:
-                self.config = [[self.__class__.GOL] * size for _ in range(size)]
+                self.config = [[0] * size for _ in range(size)]
             
                 if size is not None:
                     self.__class__.SIZE= size
@@ -30,10 +33,10 @@ class Game:
                 self.config = config
 
     def __repr__(self):
-        rep = "  |"
+        rep = "  | "
         rep += " ".join([str(i) for i in range(self.__class__.SIZE)]) + "\n"
-        rep += "-" * (self.__class__.SIZE + 1) * 2 + "\n"
-        rep += "\n".join([str(i) + " |" + " ".join([str(x) for x in self.config[i]]) for i in range(len(self.config))])
+        rep += "-" * ((self.__class__.SIZE + 1) * 2 + 1) + "\n"
+        rep += "\n".join([str(i) + " | " + " ".join([str(x) for x in self.config[i]]) for i in range(len(self.config))])
         return rep
 
 
@@ -170,4 +173,4 @@ class Game:
         elif t_final == 'remiza':
             return 0
         else:
-            return (self.linii_deschise(self.__class__.JMAX)- self.linii_deschise(self.__class__.JMIN))
+            return (self.linii_deschise(self.__class__.JMAX) - self.linii_deschise(self.__class__.JMIN))
